@@ -12,6 +12,12 @@ export const getItems = async (req, res) => {
     const filter = {};
     if (req.query.category) filter.category = req.query.category;
     if (req.query.status) filter.status = req.query.status;
+    if (req.query.keyword) {
+      filter.$or = [
+        { title: { $regex: req.query.keyword, $options: 'i' } },
+        { description: { $regex: req.query.keyword, $options: 'i' } }
+      ];
+    }
 
     // Check if user is authenticated and is admin, otherwise default to basic view
     let items;
