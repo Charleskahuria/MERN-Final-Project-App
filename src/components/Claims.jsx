@@ -7,7 +7,7 @@ export default function Claims() {
 
   const fetchClaims = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/claims', {
+      const response = await fetch('/api/claims', {
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
@@ -30,7 +30,7 @@ export default function Claims() {
   const handleStatusChange = async (id, newStatus) => {
     try {
       const statusMap = { 'Rejected': 'rejected', 'Approved': 'approved' };
-      const response = await fetch(`http://localhost:5000/api/claims/${id}`, {
+      const response = await fetch(`/api/claims/${id}`, {
         method: 'PUT',
         headers: { 
             'Content-Type': 'application/json',

@@ -9,7 +9,7 @@ export default function Inventory() {
   // Fetch Items
   const fetchItems = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/items', {
+      const response = await fetch('/api/items', {
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
@@ -36,7 +36,7 @@ export default function Inventory() {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/items/${id}`, {
+      const response = await fetch(`/api/items/${id}`, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -62,7 +62,7 @@ export default function Inventory() {
       const payload = { ...newItem };
       if(!payload.imageUrl) delete payload.imageUrl;
 
-      const response = await fetch('http://localhost:5000/api/items', {
+      const response = await fetch('/api/items', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

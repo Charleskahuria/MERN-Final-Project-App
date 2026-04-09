@@ -16,7 +16,7 @@ export default function ClaimModal({ isOpen, onClose, item }) {
     if (!item) return;
 
     try {
-      const response = await fetch('http://localhost:5000/api/claims', {
+      const response = await fetch('/api/claims', {
         method: 'POST',
         headers: { 
             'Content-Type': 'application/json',
